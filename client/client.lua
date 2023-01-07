@@ -1773,8 +1773,9 @@ RegisterNetEvent("CL-BeanMachine:DutyMenu", function()
 end)
 
 RegisterNetEvent("CL-BeanMachine:ToastsMenu", function()
-	QBCore.Functions.TriggerCallback('CL-BeanMachine:CheckDuty', function(result)
-        if result then
+	QBCore.Functions.GetPlayerData(function(PlayerData)
+		PlayerJob = PlayerData.job
+		if PlayerData.job.onduty then
 			local ToastsMenu = {
 				{
 					header = "Toasts / Donuts",
@@ -1860,8 +1861,9 @@ RegisterNetEvent("CL-BeanMachine:FruitsMenu", function()
     exports['qb-menu']:openMenu(FruitsMenu)
 end)
 RegisterNetEvent('CL-BeanMachine:CupMenu', function ()
-	QBCore.Functions.TriggerCallback('CL-BeanMachine:CheckDuty', function(result)
-		if result then
+	QBCore.Functions.GetPlayerData(function(PlayerData)
+		PlayerJob = PlayerData.job
+		if PlayerData.job.onduty then
 			local cupmenu = {
 				{
 					header = 'Cups',
@@ -1885,8 +1887,9 @@ RegisterNetEvent('CL-BeanMachine:CupMenu', function ()
 	end)
 end)
 RegisterNetEvent('CL-BeanMachine:GlassesMenu',function ()
-	QBCore.Functions.TriggerCallback('CL-BeanMachine:CheckDuty',function (result)
-		if result then
+	QBCore.Functions.GetPlayerData(function(PlayerData)
+		PlayerJob = PlayerData.job
+		if PlayerData.job.onduty then
 			local GlassesMenu = {
 				{
 					header = 'Coffee Glasses',
@@ -1930,8 +1933,9 @@ RegisterNetEvent('CL-BeanMachine:GlassesMenu',function ()
 	end)
 end)
 RegisterNetEvent("CL-BeanMachine:MuffinsMenu", function()
-	QBCore.Functions.TriggerCallback('CL-BeanMachine:CheckDuty', function(result)
-        if result then
+	QBCore.Functions.GetPlayerData(function(PlayerData)
+		PlayerJob = PlayerData.job
+		if PlayerData.job.onduty then
 			local MuffinsMenu = {
 				{
 					header = "Muffins",
@@ -2019,8 +2023,9 @@ end)
 
 
 RegisterNetEvent("CL-BeanMachine:DrinksMenu", function()
-	QBCore.Functions.TriggerCallback('CL-BeanMachine:CheckDuty', function(result)
-        if result then
+	QBCore.Functions.GetPlayerData(function(PlayerData)
+		PlayerJob = PlayerData.job
+		if PlayerData.job.onduty then
 			local DrinksMenu = {
 				{
 					header = "Drinks Machine",
@@ -2099,8 +2104,9 @@ RegisterNetEvent("CL-BeanMachine:DrinksCatalog", function()
 end)
 
 RegisterNetEvent("CL-BeanMachine:SlushsMenu", function()
-	QBCore.Functions.TriggerCallback('CL-BeanMachine:CheckDuty', function(result)
-        if result then
+	QBCore.Functions.GetPlayerData(function(PlayerData)
+		PlayerJob = PlayerData.job
+		if PlayerData.job.onduty then
 			local SlushsMenu = {
 				{
 					header = "Slushs",
