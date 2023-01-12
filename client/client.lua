@@ -568,7 +568,60 @@ RegisterNetEvent('CL-BeanMachine:OpenShop', function()
 		end
 	end)
 end)
+RegisterNetEvent('CL-BeanMachine:Eat')
+AddEventHandler('CL-BeanMachine:Eat', function(item, progressbartext, progressbartime, donut, fruit, muffin)
+	if donut then
+		TriggerEvent("CL-BeanMachine:SpawnObject", "prop_amb_donut", 18905, 0.13, 0.05, 0.02, -50.0, 16.0, 60.0, 3500, false)
+		TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + Config.EatingDonutHunger)
+	elseif fruit then
+		TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + Config.EatingFruitsHunger)
+	elseif muffin then
+		TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + Config.EatingMuffinsHunger)
+	end
+	QBCore.Functions.Progressbar('eat'..item, progressbartext, progressbartime, false, true, {
+		disableMovement = false,
+		disableCarMovement = true,
+		disableMouse = false,
+		disableCombat = true,
+	}, {
+		animDict = "mp_player_inteat@burger",
+		anim = "mp_player_int_eat_burger",
+		flags = 49,
+	}, {}, {}, function()
 
+	end, function()
+		QBCore.Functions.Notify("Canceled...", "error")
+	end)
+end)
+
+RegisterNetEvent('CL-BeanMachine:Drink')
+AddEventHandler('CL-BeanMachine:Drink', function(item, progressbartext, progressbartime, cola, sprite, pepper, slush, coffee)
+	TriggerServerEvent("QBCore:Server:SetMetaData", "thirst", QBCore.Functions.GetPlayerData().metadata["thirst"] + Config.DrinksThirstLevel)
+	if cola then 
+		TriggerEvent("CL-BeanMachine:SpawnObject", "prop_cs_bs_cup", 28422, 0.01, -0.01, -0.00, 0.0, 0.0, 0.0, 5500, false, false)
+	elseif pepper then
+		TriggerEvent("CL-BeanMachine:SpawnObject", "prop_plastic_cup_02", 28422, 0.01, -0.01, -0.00, 0.0, 0.0, 0.0, 5500, false, false)
+	elseif sprite then
+		TriggerEvent("CL-BeanMachine:SpawnObject", "ng_proc_sodacan_01b", 28422, 0.01, -0.01, -0.07, 0.0, 0.0, 0.0, 5500, false, false)
+	elseif slush then
+		TriggerEvent("CL-BeanMachine:SpawnObject", "v_ret_fh_bscup", 28422, 0.01, -0.01, -0.00, 0.0, 0.0, 0.0, 5500, true, false)
+	elseif coffee then
+		TriggerEvent("CL-BeanMachine:SpawnObject", "ng_proc_coffee_01a", 28422, 0.01, -0.01, -0.07, 0.0, 0.0, 0.0, 5500, false, true)
+	end
+	QBCore.Functions.Progressbar('drinking'..item, progressbartext, progressbartime, false, true, {
+		disableMovement = false,
+		disableCarMovement = true,
+		disableMouse = false,
+		disableCombat = true,
+	}, {
+		animDict = "amb@world_human_drinking@coffee@male@idle_a",
+		anim = "idle_a",
+		flags = 49,
+	}, {}, {}, function()
+	end, function()
+		QBCore.Functions.Notify("Canceled...", "error")
+	end)
+end)
 RegisterNetEvent('CL-BeanMachine:WashHands', function()
 	QBCore.Functions.TriggerCallback('CL-BeanMachine:CheckDuty', function(result)
 		if result then
@@ -710,7 +763,7 @@ RegisterNetEvent('CL-BeanMachine:client:donut',function ()
 				
 			end
 		
-			QBCore.Functions.Notify('You must be clocked into work', 'error')
+
 	end)
 end)
 RegisterNetEvent('CL-BeanMachine:client:Toast',function ()
@@ -743,7 +796,7 @@ RegisterNetEvent('CL-BeanMachine:client:Toast',function ()
 				
 			end
 		
-			QBCore.Functions.Notify('You must be clocked into work', 'error')
+	
 	end)
 end)
 RegisterNetEvent('CL-BeanMachine:client:Banana',function ()
@@ -776,7 +829,7 @@ RegisterNetEvent('CL-BeanMachine:client:Banana',function ()
 				
 			end
 		
-			QBCore.Functions.Notify('You must be clocked into work', 'error')
+			
 	end)
 end)
 RegisterNetEvent('CL-BeanMachine:client:Apple',function ()
@@ -809,7 +862,7 @@ RegisterNetEvent('CL-BeanMachine:client:Apple',function ()
 				
 			end
 		
-			QBCore.Functions.Notify('You must be clocked into work', 'error')
+		
 	end)
 end)
 RegisterNetEvent('CL-BeanMachine:client:Beans',function ()
@@ -842,7 +895,7 @@ RegisterNetEvent('CL-BeanMachine:client:Beans',function ()
 				
 			end
 		
-			QBCore.Functions.Notify('You must be clocked into work', 'error')
+		
 	end)
 end)
 RegisterNetEvent('CL-BeanMachine:client:orange',function ()
@@ -875,7 +928,7 @@ RegisterNetEvent('CL-BeanMachine:client:orange',function ()
 				
 			end
 		
-			QBCore.Functions.Notify('You must be clocked into work', 'error')
+			
 	end)
 end)
 RegisterNetEvent('CL-BeanMachine:client:Muffin',function ()
@@ -908,7 +961,7 @@ RegisterNetEvent('CL-BeanMachine:client:Muffin',function ()
 				
 			end
 		
-			QBCore.Functions.Notify('You must be clocked into work', 'error')
+			
 	end)
 end)
 RegisterNetEvent('CL-BeanMachine:client:ChocolateMuffin',function ()
@@ -941,7 +994,7 @@ RegisterNetEvent('CL-BeanMachine:client:ChocolateMuffin',function ()
 				
 			end
 		
-			QBCore.Functions.Notify('You must be clocked into work', 'error')
+			
 	end)
 end)
 RegisterNetEvent('CL-BeanMachine:client:BerryMuffin',function ()
@@ -974,7 +1027,7 @@ RegisterNetEvent('CL-BeanMachine:client:BerryMuffin',function ()
 		
 			end
 		
-			QBCore.Functions.Notify('You must be clocked into work', 'error')
+			
 	end)
 end)
 RegisterNetEvent('CL-BeanMachine:client:RegularCup',function ()
@@ -1004,7 +1057,7 @@ RegisterNetEvent('CL-BeanMachine:client:RegularCup',function ()
 				end)
 			else
 			end
-			QBCore.Functions.Notify('You must be clocked into work', 'error')
+		
 	end)
 end)
 RegisterNetEvent('CL-BeanMachine:client:CoffeeGlass',function ()
@@ -1034,7 +1087,7 @@ RegisterNetEvent('CL-BeanMachine:client:CoffeeGlass',function ()
 				end)
 			else
 			end
-			QBCore.Functions.Notify('You must be clocked into work', 'error')
+	
 	end)
 end)
 RegisterNetEvent('CL-BeanMachine:client:HighCoffeeGlass',function ()
@@ -1064,7 +1117,7 @@ RegisterNetEvent('CL-BeanMachine:client:HighCoffeeGlass',function ()
 				end)
 			else
 			end
-			QBCore.Functions.Notify('You must be clocked into work', 'error')
+
 	end)
 end)
 RegisterNetEvent('CL-BeanMachine:client:EspressoCup',function ()
@@ -1094,7 +1147,7 @@ RegisterNetEvent('CL-BeanMachine:client:EspressoCup',function ()
 				end)
 			else
 			end
-			QBCore.Functions.Notify('You must be clocked into work', 'error')
+
 	end)
 end)
 RegisterNetEvent('CL-BeanMachine:client:lemonslush',function ()
@@ -1129,7 +1182,7 @@ RegisterNetEvent('CL-BeanMachine:client:lemonslush',function ()
 				QBCore.Functions.Notify('You dont have the correct cup to make this', 'error')
 			end
 		else
-			QBCore.Functions.Notify('You must be clocked into work', 'error')
+			
 		end
 	end)
 end)
@@ -1165,7 +1218,7 @@ RegisterNetEvent('CL-BeanMachine:client:OrangeSlushie',function ()
 				QBCore.Functions.Notify('You dont have the correct cup to make this', 'error')
 			end
 		else
-			QBCore.Functions.Notify('You must be clocked into work', 'error')
+			
 		end
 	end)
 end)
@@ -1201,16 +1254,16 @@ RegisterNetEvent('CL-BeanMachine:client:GiveSprite',function ()
 				QBCore.Functions.Notify('You dont have the correct cup to make this', 'error')
 			end
 		else
-			QBCore.Functions.Notify('You must be clocked into work', 'error')
+			
 		end
 	end)
 end)
-RegisterNetEvent('CL-BeanMachine:client:GiveCola', function ()
+RegisterNetEvent('CL-BeanMachine:client:cola',function ()
 	QBCore.Functions.GetPlayerData(function (PlayerData)
 		PlayerJob = PlayerData.job
 		if PlayerData.job.onduty then
 			local regularcup = QBCore.Functions.HasItem("bregularcup")
-			if regularcup then
+			if  regularcup then
 				working = true
 				LocalPlayer.state:set("inv_busy", true, true)
 				QBCore.Functions.Progressbar('pickup_sla', 'Dispensing CocaCola', 5000, false, true, {
@@ -1237,19 +1290,19 @@ RegisterNetEvent('CL-BeanMachine:client:GiveCola', function ()
 				QBCore.Functions.Notify('You dont have the correct cup to make this', 'error')
 			end
 		else
-			QBCore.Functions.Notify('You must be clocked into work', 'error')
+			
 		end
 	end)
 end)
-RegisterNetEvent('CL-BeanMachine:client:GivePepper', function ()
+RegisterNetEvent('CL-BeanMachine:client:pepper',function ()
 	QBCore.Functions.GetPlayerData(function (PlayerData)
 		PlayerJob = PlayerData.job
 		if PlayerData.job.onduty then
 			local regularcup = QBCore.Functions.HasItem("bregularcup")
-			if regularcup then
+			if  regularcup then
 				working = true
 				LocalPlayer.state:set("inv_busy", true, true)
-				QBCore.Functions.Progressbar('pickup_sla', '', 5000, false, true, {
+				QBCore.Functions.Progressbar('pickup_sla', 'Dispensing Dr. Pepper', 5000, false, true, {
 					disableMovement = true,
 					disableCarMovement = false,
 					disableMouse = false,
@@ -1273,7 +1326,7 @@ RegisterNetEvent('CL-BeanMachine:client:GivePepper', function ()
 				QBCore.Functions.Notify('You dont have the correct cup to make this', 'error')
 			end
 		else
-			QBCore.Functions.Notify('You must be clocked into work', 'error')
+			
 		end
 	end)
 end)
@@ -1312,7 +1365,7 @@ RegisterNetEvent('CL-BeanMachine:client:CloudCafe', function ()
 				QBCore.Functions.Notify('You dont have the correct Ingredients to make this', 'error')
 			end
 		else
-			QBCore.Functions.Notify('You must be clocked into work', 'error')
+			
 		end
 	end)
 end)
@@ -1352,7 +1405,7 @@ RegisterNetEvent('CL-BeanMachine:client:StrawberryCreamFrap', function ()
 				QBCore.Functions.Notify('You dont have the correct Ingredients to make this', 'error')
 			end
 		else
-			QBCore.Functions.Notify('You must be clocked into work', 'error')
+			
 		end
 	end)
 end)
@@ -1391,7 +1444,7 @@ RegisterNetEvent('CL-BeanMachine:client:JavaChipFrap', function ()
 				QBCore.Functions.Notify('You dont have the correct Ingredients to make this', 'error')
 			end
 		else
-			QBCore.Functions.Notify('You must be clocked into work', 'error')
+			
 		end
 	end)
 end)
@@ -1431,7 +1484,7 @@ RegisterNetEvent('CL-BeanMachine:client:HotChoc', function ()
 				QBCore.Functions.Notify('You dont have the correct Ingredients to make this', 'error')
 			end
 		else
-			QBCore.Functions.Notify('You must be clocked into work', 'error')
+			
 		end
 	end)
 end)
@@ -1471,7 +1524,7 @@ RegisterNetEvent('CL-BeanMachine:client:Caramelfrap', function ()
 				QBCore.Functions.Notify('You dont have the correct Ingredients to make this', 'error')
 			end
 		else
-			QBCore.Functions.Notify('You must be clocked into work', 'error')
+			
 		end
 	end)
 end)
@@ -1510,7 +1563,7 @@ RegisterNetEvent('CL-BeanMachine:client:HoneyHazelnutOatLatte', function ()
 				QBCore.Functions.Notify('You dont have the correct Ingredients to make this', 'error')
 			end
 		else
-			QBCore.Functions.Notify('You must be clocked into work', 'error')
+			
 		end
 	end)
 end)
@@ -1549,7 +1602,7 @@ RegisterNetEvent('CL-BeanMachine:client:ColdBrew', function ()
 				QBCore.Functions.Notify('You dont have the correct Ingredients to make this', 'error')
 			end
 		else
-			QBCore.Functions.Notify('You must be clocked into work', 'error')
+			
 		end
 	end)
 end)
@@ -1588,7 +1641,7 @@ RegisterNetEvent('CL-BeanMachine:client:StrawberryVanillaOatLatte', function ()
 				QBCore.Functions.Notify('You dont have the correct Ingredients to make this', 'error')
 			end
 		else
-			QBCore.Functions.Notify('You must be clocked into work', 'error')
+			
 		end
 	end)
 end)
@@ -1627,7 +1680,7 @@ RegisterNetEvent('CL-BeanMachine:client:IcedCaffeLatte', function ()
 				QBCore.Functions.Notify('You dont have the correct Ingredients to make this', 'error')
 			end
 		else
-			QBCore.Functions.Notify('You must be clocked into work', 'error')
+		
 		end
 	end)
 end)
@@ -1665,7 +1718,7 @@ RegisterNetEvent('CL-BeanMachine:client:Espresso', function ()
 				QBCore.Functions.Notify('You dont have the correct Ingredients to make this', 'error')
 			end
 		else
-			QBCore.Functions.Notify('You must be clocked into work', 'error')
+			
 		end
 	end)
 end)
@@ -1703,7 +1756,7 @@ RegisterNetEvent('CL-BeanMachine:client:EspressoMacchiato', function ()
 				QBCore.Functions.Notify('You dont have the correct Ingredients to make this', 'error')
 			end
 		else
-			QBCore.Functions.Notify('You must be clocked into work', 'error')
+			
 		end
 	end)
 end)
@@ -2046,51 +2099,41 @@ end)
 RegisterNetEvent("CL-BeanMachine:DrinksCatalog", function()
 	QBCore.Functions.TriggerCallback('CL-BeanMachine:CheckDuty', function(result)
         if result then
-			local colddrinkmainmenu = {
-				{	
-					header = 'Cold Drinks' ,
+			local colddrinkmenu = {
+				{
+					header = 'Soft Drinks',
 					isMenuHeader = true,
-				},
-				{
-					header = '• Sprite',
-					txt = 'Required Cup: Regular',
-					params = {
-						event = 'CL-BeanMachine:client:GiveSprite',
-						args = {
-
-						}
-					}
-				},
-				{
-					header = '• CocaCola',
-					txt =  'Required Cup: Regular',
-					params = {
-						event = 'Cl-BeanMachine:client:GiveCola',
-						args = {
-
-						}
-					}
-				},
-				{
-					header = '• Dr. Pepper',
-					txt = 'Required Cup: Regular',
-					params = {
-						event = 'CL-Beanmachine:client:GivePepper',
-						args = {
-
-						}
-					}
-				},
-				{
-		            header = '『⬅』Go Back',
-		            txt = '',
-		            params = {
-		                event = "CL-BeanMachine:DrinksMenu",
-						
-		            }
-		        },
+				}
 			}
-			exports['qb-menu']:openMenu(colddrinkmainmenu)
+			colddrinkmenu[#colddrinkmenu+1] = {
+				header = '• Sprite',
+				txt = 'Required Cup: Regular',
+				params = {
+					event = "CL-BeanMachine:client:GiveSprite",
+				}
+			}
+			colddrinkmenu[#colddrinkmenu+1] = {
+				header = '• CocaCola',
+				txt = 'Required Cup: Regular',
+				params = {
+					event = 'CL-BeanMachine:client:cola',
+				}
+			}
+			colddrinkmenu[#colddrinkmenu+1] = {
+				header = '• Dr. Pepper',
+				txt = 'Required Cup: RegularCup',
+				params ={
+					event = "CL-BeanMachine:client:pepper"
+				}
+			}
+			colddrinkmenu[#colddrinkmenu+1] = {
+				header = "⬅ Close",
+				params = {
+					event = "qb-menu:client:closeMenu"
+				}
+			}
+
+			exports['qb-menu']:openMenu(colddrinkmenu)
 		else
 			QBCore.Functions.Notify('You must be Clocked into work', 'error')
 		end	
