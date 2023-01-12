@@ -186,6 +186,7 @@ RegisterNetEvent('CL-BeanMachine:GiveLemonSlush', function ()
     ply.Functions.RemoveItem('bregularcup', 1)
     ply.Functions.AddItem('blemonslush',1)
 end)
+
 RegisterNetEvent('CL-BeanMachine:GiveOrangeSlush', function ()
     local src = source
     local ply = QBCore.Functions.GetPlayer(src)
@@ -195,6 +196,7 @@ RegisterNetEvent('CL-BeanMachine:GiveOrangeSlush', function ()
     ply.Functions.RemoveItem('bregularcup', 1)
     ply.Functions.AddItem('borangeslush',1)
 end)
+
 RegisterNetEvent('CL-BeanMachine:GiveSprite', function ()
     local src = source
     local ply = QBCore.Functions.GetPlayer(src)
@@ -204,6 +206,7 @@ RegisterNetEvent('CL-BeanMachine:GiveSprite', function ()
     ply.Functions.RemoveItem('bregularcup', 1)
     ply.Functions.AddItem('bsprite',1)
 end)
+
 RegisterNetEvent('CL-BeanMachine:GiveCola', function ()
     local src = source
     local ply = QBCore.Functions.GetPlayer(src)
@@ -213,6 +216,7 @@ RegisterNetEvent('CL-BeanMachine:GiveCola', function ()
     ply.Functions.RemoveItem('bregularcup', 1)
     ply.Functions.AddItem('bcocacola',1)
 end)
+
 RegisterNetEvent('CL-BeanMachine:Givedrpepper', function ()
     local src = source
     local ply = QBCore.Functions.GetPlayer(src)
@@ -222,6 +226,7 @@ RegisterNetEvent('CL-BeanMachine:Givedrpepper', function ()
     ply.Functions.RemoveItem('bregularcup', 1)
     ply.Functions.AddItem('bpepper',1)
 end)
+
 RegisterNetEvent('CL-BeanMachine:GiveToast', function ()
     local src = source
     local ply = QBCore.Functions.GetPlayer(src)
@@ -236,6 +241,7 @@ RegisterNetEvent('CL-BeanMachine:GiveDonut', function ()
     TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items['bdonut'], 'add')
     ply.Functions.AddItem('bdonut',1)
 end)
+
 RegisterNetEvent('CL-BeanMachine:GiveBanana', function ()
     local src = source
     local ply = QBCore.Functions.GetPlayer(src)
@@ -243,6 +249,7 @@ RegisterNetEvent('CL-BeanMachine:GiveBanana', function ()
     TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items['bbanana'], 'add')
     ply.Functions.AddItem('bbanana',1)
 end)
+
 RegisterNetEvent('CL-BeanMachine:GiveOrange', function ()
     local src = source
     local ply = QBCore.Functions.GetPlayer(src)
@@ -250,6 +257,7 @@ RegisterNetEvent('CL-BeanMachine:GiveOrange', function ()
     TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items['borange'], 'add')
     ply.Functions.AddItem('borange',1)
 end)
+
 RegisterNetEvent('CL-BeanMachine:Giveapple', function ()
     local src = source
     local ply = QBCore.Functions.GetPlayer(src)
@@ -257,6 +265,7 @@ RegisterNetEvent('CL-BeanMachine:Giveapple', function ()
     TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items['bapple'], 'add')
     ply.Functions.AddItem('bapple',1)
 end)
+
 RegisterNetEvent('CL-BeanMachine:Givemuffin', function ()
     local src = source
     local ply = QBCore.Functions.GetPlayer(src)
@@ -264,6 +273,7 @@ RegisterNetEvent('CL-BeanMachine:Givemuffin', function ()
     TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items['bmuffin'], 'add')
     ply.Functions.AddItem('bmuffin',1)
 end)
+
 RegisterNetEvent('CL-BeanMachine:Givebeans', function ()
     local src = source
     local ply = QBCore.Functions.GetPlayer(src)
@@ -278,6 +288,7 @@ RegisterNetEvent('CL-BeanMachine:GiveChocolateMuffin', function ()
     TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items['bchocolatemuffin'], 'add')
     ply.Functions.AddItem('bchocolatemuffin',1)
 end)
+
 RegisterNetEvent('CL-BeanMachine:GiveberryMuffin', function ()
     local src = source
     local ply = QBCore.Functions.GetPlayer(src)
@@ -285,6 +296,7 @@ RegisterNetEvent('CL-BeanMachine:GiveberryMuffin', function ()
     TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items['bberrymuffin'], 'add')
     ply.Functions.AddItem('bberrymuffin',1)
 end)
+
 RegisterNetEvent('CL-BeanMachine:Givemenu', function ()
     local src = source
     local ply = QBCore.Functions.GetPlayer(src)
@@ -307,6 +319,7 @@ RegisterNetEvent('CL-BeanMachine:GiveCloudCafe', function ()
     ply.Functions.RemoveItem('bcream',1)
     ply.Functions.AddItem('bcloudcafe',1)
 end)
+
 RegisterNetEvent('CL-BeanMachine:GiveStrawberryCreamFrap', function ()
     local src = source
     local ply = QBCore.Functions.GetPlayer(src)
@@ -324,6 +337,7 @@ RegisterNetEvent('CL-BeanMachine:GiveStrawberryCreamFrap', function ()
     ply.Functions.RemoveItem('bstrawberry',1)
     ply.Functions.AddItem('bstrawberrycreamfrappuccino',1)
 end)
+
 RegisterNetEvent('CL-BeanMachine:GiveJavaChipFrap', function ()
     local src = source
     local ply = QBCore.Functions.GetPlayer(src)
@@ -339,6 +353,7 @@ RegisterNetEvent('CL-BeanMachine:GiveJavaChipFrap', function ()
     ply.Functions.RemoveItem('bcream',1)
     ply.Functions.AddItem('bjavachipfrappuccino',1)
 end)
+
 RegisterNetEvent('CL-BeanMachine:GiveHotChoclate', function ()
     local src = source
     local ply = QBCore.Functions.GetPlayer(src)
@@ -356,6 +371,7 @@ RegisterNetEvent('CL-BeanMachine:GiveHotChoclate', function ()
     ply.Functions.RemoveItem('bhotchocolatepowder',1)
     ply.Functions.AddItem('bhotchoc',1)
 end)
+
 RegisterNetEvent('CL-BeanMachine:GiveCaramelFrap', function ()
     local src = source
     local ply = QBCore.Functions.GetPlayer(src)
@@ -373,6 +389,7 @@ RegisterNetEvent('CL-BeanMachine:GiveCaramelFrap', function ()
     ply.Functions.RemoveItem('bcaramelsyrup',1)
     ply.Functions.AddItem('bcaramelfrappucino',1)
 end)
+
 RegisterNetEvent('CL-BeanMachine:GiveHoneyHazelnutOatLatte', function ()
     local src = source
     local ply = QBCore.Functions.GetPlayer(src)
@@ -388,6 +405,7 @@ RegisterNetEvent('CL-BeanMachine:GiveHoneyHazelnutOatLatte', function ()
     ply.Functions.RemoveItem('bhoney',1)
     ply.Functions.AddItem('bhoneyhazelnutoatlatte',1)
 end)
+
 RegisterNetEvent('CL-BeanMachine:GiveColdBrewLatte', function ()
     local src = source
     local ply = QBCore.Functions.GetPlayer(src)
@@ -403,6 +421,7 @@ RegisterNetEvent('CL-BeanMachine:GiveColdBrewLatte', function ()
     ply.Functions.RemoveItem('bice',1)
     ply.Functions.AddItem('bcoldbrewlatte',1)
 end)
+
 RegisterNetEvent('CL-BeanMachine:GiveStrawberryVanillaOatLatte', function ()
     local src = source
     local ply = QBCore.Functions.GetPlayer(src)
@@ -418,6 +437,7 @@ RegisterNetEvent('CL-BeanMachine:GiveStrawberryVanillaOatLatte', function ()
     ply.Functions.RemoveItem('bstrawberry',1)
     ply.Functions.AddItem('bstrawberryvanillaoatlatte',1)
 end)
+
 RegisterNetEvent('CL-BeanMachine:GiveIcedCaffeLatte', function ()
     local src = source
     local ply = QBCore.Functions.GetPlayer(src)
@@ -433,6 +453,7 @@ RegisterNetEvent('CL-BeanMachine:GiveIcedCaffeLatte', function ()
     ply.Functions.RemoveItem('bice',1)
     ply.Functions.AddItem('bicedcaffelatte',1)
 end)
+
 RegisterNetEvent('CL-BeanMachine:GiveEspresso', function ()
     local src = source
     local ply = QBCore.Functions.GetPlayer(src)
@@ -446,6 +467,7 @@ RegisterNetEvent('CL-BeanMachine:GiveEspresso', function ()
     ply.Functions.RemoveItem('bcoffeebeans',1)
     ply.Functions.AddItem('bespresso',1)
 end)
+
 RegisterNetEvent('CL-BeanMachine:GiveEspressoMacchiato', function ()
     local src = source
     local ply = QBCore.Functions.GetPlayer(src)
