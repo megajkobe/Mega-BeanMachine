@@ -2,8 +2,8 @@ fx_version 'adamant'
 
 game 'gta5'
 lua54 'yes'
-author "NevoSwissa#0111"
-description "Bean Machine Job Made By NevoSwissa#0111 For CloudDevelopment"
+author "megaJkobe"
+description "An updated verison of the Bean Machine Job Made By NevoSwissa#0111"
 
 ui_page {'html/index.html'}
 
