@@ -80,7 +80,11 @@ Video: https://streamable.com/os10ii
 here you have images folder copy the images inside that folder and put it inside "qb-inventory"
 
 Video: https://streamable.com/0bb51c
+
+
 4 - Add the following to qb-smallerresoucres/config.lua
+
+
 Under ConsumablesEat 
     ["bdonut"] = math.random(50, 60),
     ["bbanana"] = math.random(50, 60),
@@ -89,6 +93,8 @@ Under ConsumablesEat
     ["bmuffin"] = math.random(50, 60),
     ["bchocolatemuffin"] = math.random(50, 60),
     ["bberrymuffin"] = math.random(50, 60),
+
+
 
 Under ConsumablesDrink
 ["blemonslush"] = math.random(22, 32),
@@ -109,6 +115,8 @@ Under ConsumablesDrink
     ["bespressomacchiato"] = math.random(22, 32),
 
 5 - Add the following to qb-smallerresoucrces/server/consumables.lua
+
+
 QBCore.Functions.CreateUseableItem('bdonut', function(source, item)
  local Player = QBCore.Functions.GetPlayer(source)
  if not Player.Functions.RemoveItem(item.name, 1, item.slot) then return end
